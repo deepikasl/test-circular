@@ -1,16 +1,20 @@
 jobs:
   - name: test-job-1
-    type: manifest
+    type: runSh
     steps:
       - IN: test-img
         switch: off
       - OUT: test-img
+      - TASK:
+        - script: "echo test-job-1"
   - name: test-job-2
-    type: manifest
+    type: runSh
     steps:
       - IN: test-img
         switch: on
       - OUT: test-img
+      - TASK:
+        - script: "echo test-job-2"
 
 resources:
   - name: test-img
