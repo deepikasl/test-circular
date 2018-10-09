@@ -1,0 +1,22 @@
+jobs:
+  - name: test-job-1
+    type: manifest
+    steps:
+      - IN: test-img
+        switch: off
+      - OUT: test-img
+  - name: test-job-2
+    type: manifest
+    steps:
+      - IN: test-img
+        switch: on
+      - OUT: test-img
+
+resources:
+  - name: test-img
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
