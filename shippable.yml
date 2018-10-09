@@ -1,4 +1,8 @@
 jobs:
+  - name: test-manifest
+    type: manifest
+    steps:
+      - IN: test-img
   - name: test-job-1
     type: runSh
     steps:
@@ -12,7 +16,7 @@ jobs:
     steps:
       - IN: test-img
         switch: on
-      - OUT: test-img
+      - OUT: test-manifest
       - TASK:
         - script: "echo test-job-2"
 
